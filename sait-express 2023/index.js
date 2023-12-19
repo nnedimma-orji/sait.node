@@ -40,7 +40,13 @@ app.get("/",(req, res)=>{
     res.render("index",{greeting: greeting.greet()});
 });
 app.get("/contact2",(req, res)=>{
-    res.render("contact2");
+    res.render("contact2", (err, data)=>{
+        if (err) throw err;
+        res.write(data);
+
+        // start from here
+
+    });
 });
 app.get("/about",(req, res)=>{
     res.render("about");
