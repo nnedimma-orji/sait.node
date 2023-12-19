@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+          <meta charset="UTF-8" />
+<title>Customer Registration</title>
+    <script>
+            function validate(myform)
+            {
+            /*  var theform = document.forms[0];
+                if (theform.elements[1].value==""){
+                    document.getElementById("message").innerHTML = "Last name must have a value";
+                    myform.lname.focus();
+                    return false
+                }
+            }*/
+
+            var errorMessage ="";
+                    for (var i=0; i<document.forms[0].elements.length - 2; i++)
+                    {
+                        if (myform.elements[i].value == "")
+                    {
+                            errorMessage+= myform.elements[i].name + " must have a value\n "+ ;
+                            myform.elements[i].focus();
+                    }
+                    }
+                    
+            var postalField = document.getElementById("postalCode");
+            var exp = new RegExp(/^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i);
+            var postal = postalField.value.trim().toUpperCase();
+            postalField.value = postal;
+            if (!exp.test(postal))
+            {
+                    errorMessage += postalField.name + " has an incorrect format\n";
+                    postalField.focus();
+
+            }
+                if (!errorMessage)
+            { 
+            return confirm ("Continue submitting?");
+            }
+            else
+            {
+                document.getElementById("message").innerText = errorMessage;
+                return false;
+            }
+            }
+    
+            function showTip(para)
+            {
+                document.getElementById(para).style.visibility = "visible";
+            }
+
+            function hideTip(para)
+            {
+                document.getElementById(para).style.visibility = "hidden";
+            }
+   </script>
+                <link rel="stylesheet" type="text/css" href="myfile.css"/>
+</head>
+<body>
+    <style>
+        .tip {
+        visibility: hidden;
+         position:absolute;
+         height: 30px;
+         width: 150px;
+         top: 190px;
+         right: 700px;
+         background-color: rgb(246, 246, 246);
+         color: red;
+         font-size: 15px;
+        }
+        </style>
+  
+        <h1 align ="center">Customer Information </h1>
+        <h2 id ="message"></h2>
+        <p id="tip1" class="tip">Enter your first name</p><br/>
+        <p id="tip2"  class="tip">Enter your last name</p><br/>
+        <p id="tip3" class="tip">Enter your address</p><br/>
+        <p id="tip4" class="tip">Enter your Email</p><br/>
+        <p id="tip5" class="tip">Enter your Postal Code</p><br/>
+
+    <form method="get" action="bouncer.php">
+    
+            First name: <input type="text" name="First name" required="required" onfocus="(showTip('tip1'))" onblur="(hideTip('tip1'))">
+            <br/>
+
+            Last name: <input type="text" name="Last name" onfocus="(showTip('tip2'))" onblur="(hideTip('tip2'))"/>
+        <br/>
+
+            Address: <input type="text" name="Mailing Address" onfocus="(showTip('tip3'))" onblur="(hideTip('tip3'))"/>
+        <br/>
+
+            Email: <input type="email" name="Email" onfocus="(showTip('tip4'))" onblur="(hideTip('tip4'))"/>
+        <br/>
+            Postal Code: <input type="text" id = "postalCode" name="Postal Code" onfocus="(showTip('tip5'))" onblur="(hideTip('tip5'))"/><br/>
+       <button type="submit"  onclick="return validate(this.form)">Submit</button>
+       <button type="reset" onclick= "return confirm('Do you really want to reset?')">Reset</button>
+    </form>
+
+</body>
+</html>

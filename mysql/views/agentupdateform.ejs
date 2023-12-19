@@ -1,0 +1,17 @@
+<%- include("header") -%>
+
+<h1>Enter any changes to Agent and submit to the server</h1>
+
+<form method="post" action="/updateagent">
+	Agent Id: <input type="number" name="AgentId" readonly="readonly" value="<%= agent[0].AgentId %>" /><br />
+	First Name: <input type="text" name="AgtFirstName" value="<%= agent[0].AgtFirstName %>" /><br />
+	Initial: <input type="text" name="AgtMiddleInitial" value="<%= agent[0].AgtMiddleInitial %>" /><br />
+	Last Name: <input type="text" name="AgtLastName" value="<%= agent[0].AgtLastName %>" /><br />
+	Phone: <input type="text" name="AgtBusPhone" value="<%= agent[0].AgtBusPhone %>" /><br />
+	Email: <input type="text" name="AgtEmail" value="<%= agent[0].AgtEmail %>" /><br />
+	Position: <input type="text" name="AgtPosition" value="<%= agent[0].AgtPosition %>" /><br />
+	Agency Id: <input type="number" name="AgencyId" value="<%= agent[0].AgencyId %>" /><br />
+	<button type="submit">Submit to Server</button>
+</form>
+
+<%- include("footer") -%>

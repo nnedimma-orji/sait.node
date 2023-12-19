@@ -1,0 +1,33 @@
+doctype html
+head
+  title
+    | Travel Experts
+  style.
+    h1 {
+    text-align: center; color: rgb(26, 24, 25);
+    font-size: 50px;
+    color: rgb(15, 15, 15);
+    border-radius: 3ch;
+    border-color: black;
+    }
+    li {
+    float: left; display: block; width: 120px; padding: 4PX;
+    background-color: rgb(242, 125, 125);
+    }
+h1#greetingMessage
+script(type='text/javascript' src='greeting.js')
+script.
+  document.getElementById("greetingMessage").innerHTML = getGreeting();
+h1
+  | #{greeting} TRAVEL EXPERTS
+ul
+  li
+    a(href='/')  HOME
+  li
+    a(href='contact2') CONTACT US
+  li
+    a(href='about') ABOUT
+  li
+    a(href='404') 404 Page
+  li
+    a(href='register') REGISTER

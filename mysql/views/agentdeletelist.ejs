@@ -1,0 +1,15 @@
+<%- include("header") -%>
+
+	<select onchange='deleteAgent(this.value)'>
+		<option value=''>Select an Agent to delete</option>
+		<%
+		for (var i=0; i<result.length; i++)
+		{
+		%>
+			<option value="<%= result[i].AgentId %>"><%= result[i].AgtFirstName %> <%= result[i].AgtLastName %></option>
+		<%
+		}
+		%>
+	</select>
+
+<%- include("footer") -%>

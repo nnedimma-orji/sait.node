@@ -1,0 +1,35 @@
+<%- include("header") -%>
+
+	<table border="1">
+		<tr>
+		<%
+		for (var i=0; i<fields.length; i++)
+		{
+		%>
+			<th><%= fields[i].name %></th>
+		<%
+		}
+		%>
+		</tr>
+		
+		<tr>
+		<%
+		for (var i=0; i<agent.length; i++)
+		{
+		%>
+			<td><%= agent[i].AgentId %></td>
+			<td><%= agent[i].AgtFirstName %></td>
+			<td><%= agent[i].AgtMiddleInitial %></td>
+			<td><%= agent[i].AgtLastName %></td>
+			<td><%= agent[i].AgtBusPhone %></td>
+			<td><%= agent[i].AgtEmail %></td>
+			<td><%= agent[i].AgtPosition %></td>
+			<td><%= agent[i].AgencyId %></td>
+		<%
+		}
+		%>
+		</tr>
+		
+	</table>
+
+<%- include("footer") -%>

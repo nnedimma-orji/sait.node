@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= myTitle %></title>
+		<style>
+		</style>
+		<script>
+			function getAgent(agentId)
+			{
+				window.location = "/getagent/" + agentId;
+			}
+			
+			function loadAgent(agentId)
+			{
+				window.location = "/getagentupdate/" + agentId;
+			}
+
+			function deleteAgent(agentId)
+			{
+				if (confirm("Did you really want to delete this agent?"))
+				{
+					window.location = "/getagentdelete/" + agentId;
+				}
+			}
+		</script>
+	</head>
+	<body>

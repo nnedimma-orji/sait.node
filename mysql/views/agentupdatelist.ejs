@@ -1,0 +1,15 @@
+<%- include("header") -%>
+
+	<select onchange='loadAgent(this.value)'>
+		<option value=''>Select an Agent to view details</option>
+		<%
+		for (var i=0; i<result.length; i++)
+		{
+		%>
+			<option value="<%= result[i].AgentId %>"><%= result[i].AgtFirstName %> <%= result[i].AgtLastName %></option>
+		<%
+		}
+		%>
+	</select>
+
+<%- include("footer") -%>

@@ -1,0 +1,16 @@
+<%- include("header") -%>
+
+<h1>Enter Agent data and submit to the server</h1>
+
+<form method="post" action="/insertagent">
+	First Name: <input type="text" name="AgtFirstName" /><br />
+	Initial: <input type="text" name="AgtMiddleInitial" /><br />
+	Last Name: <input type="text" name="AgtLastName" /><br />
+	Phone: <input type="text" name="AgtBusPhone" /><br />
+	Email: <input type="text" name="AgtEmail" /><br />
+	Position: <input type="text" name="AgtPosition" /><br />
+	Agency Id: <input type="number" name="AgencyId" /><br />
+	<button type="submit">Submit to Server</button>
+</form>
+
+<%- include("footer") -%>
