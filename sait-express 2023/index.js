@@ -37,7 +37,7 @@ app.get("/contact2",(req, res)=>{
             if (err) throw err;
             res.write("<ul>");
             for(i = 0; i < result.length; i++){
-                res.write("<li>" + result[i].AgtFirstName + " " + result.AgtLastName + " | " + result.AgtBusPhone);
+                res.write("<li>" + result[i].AgtFirstName + " " + result[i].AgtLastName + " | " + result[i].AgtBusPhone);
             }
             res.write("</ul>");
         })
