@@ -6,21 +6,10 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "Jennifer",
 //password: "jennifer58312566",
-database: "travelexperts"
+    database: "travelexperts"
 });
 
 const app = express();
-
-con.connect(function(err) {
-if (err) throw err;
-console.log("Connected!");
-});
-
-var sql = ("select * FROM customers");
-con.query(sql, function (err, result) {
-if (err) throw err;
-console.log("Result: " + result);
-});
 
 app.set("view engine", "pug");
 
@@ -43,7 +32,15 @@ app.get("/contact2",(req, res)=>{
     res.render("contact2", (err, data)=>{
         if (err) throw err;
         res.write(data);
-
+        var sql = ("SELECT AgtFirstName, AgtLastName, AgtBusPhone FROM agents");
+        con.query(sql, function(err, result){
+            if (err) throw err;
+            res.write("<ul>");
+            for(i = 0; i < result.length; i++){
+                res.write("<li>" + result[i].AgtFirstName + " " + result.AgtLastName + " | " + result.AgtBusPhone);
+            }
+            res.write("</ul>");
+        })
         // start from here
 
     });
