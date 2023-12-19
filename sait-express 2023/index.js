@@ -38,11 +38,11 @@ app.get("/contact2",(req, res)=>{
         if (err) throw err;
         res.write(data);
         var sql = ("SELECT AgtFirstName, AgtLastName, AgtBusPhone FROM agents");
-        con.query(sql, function(err, result){
+        dbh.query(sql, function(err, result){
             if (err) throw err;
             res.write("<ul>");
             for (var i=0; i<result.length; i++){
-                res.write("<l1>" + result[i].AgtFirstName + " " + result.AgtLastName + " " + result.AgtBusPhone);
+                res.write("<li>" + result[i].AgtFirstName + "   -" + result[i].AgtLastName + "   -" + result[i].AgtBusPhone + "</li>");
             }
             res.write("</ul>");
         });
